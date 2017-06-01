@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './dylanGolf.jpg';
 import './App.css';
 import About from './About';
 import NotFound from './NotFound'
@@ -24,6 +24,9 @@ class App extends Component {
               <li><Link to="/about">About</Link></li>
               <li><Link to="/NotFound">NotFound</Link></li>
             </ul>
+           <div className="jumbotron">
+              <h1 class="display-3">Hello, world!</h1>
+            </div>
               <div className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <h2>Welcome to React</h2>
