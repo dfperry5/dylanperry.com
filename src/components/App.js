@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import logo from './dylanGolf.jpg';
 import './App.css';
-import About from './About';
-import NotFound from './NotFound'
-import Home from './Home'
+import About from './screens/About';
+import NotFound from './screens/NotFound'
+import Home from './screens/Home'
 import {
   // NOTE no more browserHistory https://reacttraining.com/react-router/web/api/BrowserRouter
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Switch
   // NOTE Hello react-router-dom!
 } from 'react-router-dom'
 
@@ -19,30 +20,38 @@ class App extends Component {
       <div className="App">
          <Router>
           <div>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/NotFound">NotFound</Link></li>
-            </ul>
-           <div className="jumbotron">
-              <h1 class="display-3">Hello, world!</h1>
-            </div>
-              <div className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <h2>Welcome to React</h2>
+            <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
+              <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              <a className="navbar-brand" href="/">
+                <img src={logo} width="35" height="35" alt="" />
+                Dylan F. Perry
+              </a>
+              <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav mr-auto">
+                  <li className="nav-item active">
+                    <Link to="/" className="nav-link">Home <span className="sr-only">(current)</span></Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="about" className="nav-link" href="#">About</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="/NotFound" className="nav-link disabled" href="#">Not Found</Link>
+                  </li>
+                </ul>
               </div>
-              <p className="App-intro">
-                To get started, edit <code>src/App.js</code> and save to reload.
-              </p>
-            <hr/>
-            <Route exact path="/" component={Home}/>
-            <Route path="/about" component={About}/>
-            <Route path="*" component={NotFound}/>
+            </nav>
+            <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route path="/about" component={About}/>
+              <Route component={NotFound}/>
+            </Switch>
           </div>
         </Router>
       </div>
     );
   }
-}
+};
 
 export default App;
