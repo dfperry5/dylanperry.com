@@ -3,6 +3,7 @@ import logo from './dylanGolf.jpg';
 import './App.css';
 import About from './screens/About';
 import NotFound from './screens/NotFound'
+import Upload from './screens/Upload'
 import Home from './screens/Home'
 import {
   // NOTE no more browserHistory https://reacttraining.com/react-router/web/api/BrowserRouter
@@ -45,6 +46,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home}/>
               <Route path="/about" component={About}/>
+              <Route path="/upload" component={Upload}/>
               <Route component={NotFound}/>
             </Switch>
           </div>

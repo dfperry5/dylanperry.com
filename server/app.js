@@ -1,9 +1,18 @@
+const multer = require('multer');
 // server/app.js
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
+const aws = require('aws-sdk');
+const multerS3 = require('multer-s3');
+const bodyParser = require('body-parser')
+
+aws.config.loadFromPath(process.cwd() + '/server/config/aws.s3.config.json');  
 
 const app = express();
+let s3 = new aws.S3();
+
+app.use(bodyParser.json());
 
 // Setup logger
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
@@ -11,18 +20,29 @@ app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:htt
 // Serve static assets
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
-app.get('/helloWorld', (req, res) => {
-  sampleObj = {
-    text : "HelloWorld",
-    otherInfo: "test"
-  }
-  res.send(sampleObj)
-});
 // Always return the main index.html, so react-router render the route in the client
+
+
+var upload = multer({
+    storage: multerS3({
+        s3: s3,
+        bucket: 'dylan-images',
+        key: function (req, file, cb) {
+            console.log(file);
+            cb(null, file.originalname); //use Date.now() for unique file keys
+        }
+    })
+});
+
+
+app.post('/files', upload.array('file',1), (req, res) => {
+  console.log("UPLOADED WOOHOO");
+});
+
+
+
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
 });
-
-
 
 module.exports = app;
