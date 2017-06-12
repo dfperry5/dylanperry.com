@@ -39,6 +39,12 @@ app.post('/files', upload.array('file',1), (req, res) => {
   console.log("UPLOADED WOOHOO");
 });
 
+app.post('/retrieveImage', (req, res) => {
+    let urlParams = {Bucket: 'dylan-images', Key: req.body.imageName};
+    s3.getSignedUrl('getObject', urlParams, function(err, url){
+        console.log('the url of the image is', url);
+    });
+})
 
 
 app.get('*', (req, res) => {
