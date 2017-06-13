@@ -23,7 +23,7 @@ export default class AboutMeRowReverse extends Component {
             </div>
              <div className="col-4">
                 <h1> {this.props.title} </h1>
-                <img className="img-fluid" src="https://s3.us-east-2.amazonaws.com/dylan-images/NCState.jpg"/>
+                <img className="img-fluid" src={require('../../../images/' + this.props.img)}/>
             </div>
         </div>
     </div>

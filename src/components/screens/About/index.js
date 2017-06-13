@@ -1,20 +1,14 @@
 // src/components/About/index.js
 import React, { PropTypes, Component } from 'react';
 import classnames from 'classnames';
-import NCState from './NCState.jpg'
-import Finley from './finley.jpg';
-import Family from './family.JPG';
-import Ariel from './DylanRelWedding.jpg'
-import DylanHS from './DylanHeadshot.jpg'
+import DylanHS from '../../../images/DylanHeadshot.jpg'
 import './style.css';
 // Components
 import AboutMeRow from '../../shared/about-me-row'
 import AboutMeRowReverse from '../../shared/about-me-row-reverse'
 
 export default class About extends Component {
-  // static propTypes = {}
-  // static defaultProps = {}
-  // state = {}
+
   constructor() {
     super()
     this.state = {
@@ -24,6 +18,7 @@ export default class About extends Component {
           author: 'Joshua 24:15',
           source: 'The Bible (ESV)'
         },
+        image: 'family.jpg',
         title: "Family",
         post: {
           lead: "June 19 1993 - the day my parents' lives got immeasurably better.",
@@ -36,6 +31,7 @@ export default class About extends Component {
           author: 'Olaf the Snowman',
           source: 'Law of the Jungle',
         },
+        image: 'NCState.jpg',
         title: "NC State",
         post: {
           lead: "I graduated Magna Cum Laude from NC State in May 2015, with a B.S. in Computer Science.",
@@ -48,6 +44,7 @@ export default class About extends Component {
           author: 'Rudyard Kipling',
           source: 'Frozen',
         },
+        image: 'DylanRelWedding.jpg',
         title: "Ariel",
         post: {
           lead: "September 19th, 2015 is where this story began.",
@@ -60,6 +57,7 @@ export default class About extends Component {
           author: 'Charles Shultz',
           source: 'Peanuts Cartoons',
         },
+        image: 'finley.jpg',
         title: "Finley",
         post: {
           lead: "On July 4th 2016, my life improved immensely.",
@@ -80,13 +78,13 @@ export default class About extends Component {
           </div>
           <br /> <br />
             
-          <AboutMeRow title={this.state.family.title} img={Family} quote={this.state.family.quote} post={this.state.family.post}/>
+          <AboutMeRow title={this.state.family.title} img={this.state.family.image} quote={this.state.family.quote} post={this.state.family.post}/>
           <hr />
-          <AboutMeRowReverse title={this.state.ncState.title} img={NCState} quote={this.state.ncState.quote} post={this.state.ncState.post}/>
+          <AboutMeRowReverse title={this.state.ncState.title} img={this.state.ncState.image} quote={this.state.ncState.quote} post={this.state.ncState.post}/>
           <hr /> 
-          <AboutMeRow title={this.state.ariel.title} img={Ariel} quote={this.state.ariel.quote} post={this.state.ariel.post}/>
+          <AboutMeRow title={this.state.ariel.title} img={this.state.ariel.image} quote={this.state.ariel.quote} post={this.state.ariel.post}/>
           <hr />
-          <AboutMeRowReverse title={this.state.finley.title} img={Finley} quote={this.state.finley.quote} post={this.state.finley.post}/>
+          <AboutMeRowReverse title={this.state.finley.title} img={this.state.finley.image} quote={this.state.finley.quote} post={this.state.finley.post}/>
 
         </div>
       </div>

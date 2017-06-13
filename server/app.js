@@ -6,6 +6,8 @@ const path = require('path');
 const aws = require('aws-sdk');
 const multerS3 = require('multer-s3');
 const bodyParser = require('body-parser')
+const request = require('request');
+const fs = require('fs');
 
 aws.config.loadFromPath(process.cwd() + '/server/config/aws.s3.config.json');  
 
@@ -50,6 +52,20 @@ app.post('/retrieveImage', (req, res) => {
     });
 })
 
+app.post('/retrieveAllImages', (req, res) => {
+
+    let params = {Bucket: 'dylan-images'};
+    s3.listObjects(params, function(err, data){
+        var bucketContents = data.Contents;
+            for (var i = 0; i < bucketContents.length; i++){
+            var urlParams = {Bucket: 'dylan-images', Key: bucketContents[i].Key};
+                s3.getSignedUrl('getObject',urlParams, function(err, url){
+                    console.log('the url of the image is', url);
+                    request(url).pipe(fs.createWriteStream("files/" +urlParams.Key));
+                });
+            }
+    });
+})
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));

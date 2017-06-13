@@ -4,14 +4,13 @@ import classnames from 'classnames';
 import './style.css';
 
 export default class AboutMeRow extends Component {
-
   render() {
     return (
       <div>
         <div className="row">
             <div className="col-4">
             <h1> {this.props.title} </h1>
-            <img className="img-fluid" src={this.props.img}/>
+            <img className="img-fluid" src={require('../../../images/' + this.props.img)}/>
             </div>
             <div className="col-5">
             <blockquote className="blockquote blockquote-reverse">

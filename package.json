@@ -14,7 +14,8 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router": "^4.1.1",
-    "react-router-dom": "^4.1.1"
+    "react-router-dom": "^4.1.1",
+    "request": "^2.81.0"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"
@@ -22,7 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "start:server": "node server",
-    "build": "react-scripts build",
+    "build": "node server/startup.js && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
