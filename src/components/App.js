@@ -22,14 +22,14 @@ class App extends Component {
          <Router>
           <div>
             <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
-              <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#dylanContent" aria-controls="dylanContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
               <a className="navbar-brand" href="/">
                 <img src={logo} width="35" height="35" alt="" />
                 Dylan F. Perry
               </a>
-              <div className="collapse navbar-collapse" id="navbarSupportedContent">
+              <div className="collapse navbar-collapse" id="dylanContent">
                 <ul className="navbar-nav mr-auto">
                   <li className="nav-item active">
                     <Link to="/" className="nav-link">Home <span className="sr-only">(current)</span></Link>
