@@ -48,7 +48,7 @@ export default class About extends Component {
         title: "Ariel",
         post: {
           lead: "September 19th, 2015 is where this story began.",
-          text: " It really began a little before that -- but I'll leave that part to your imagination. I am so lucky to have the most supporting, wonderful, beautiful, and insane girlfriend in the world."
+          text: "We met at work, and it all took off from there. I am so lucky to have the most supporting, wonderful, beautiful, and insane girlfriend in the world."
         }
       },
       finley: {
