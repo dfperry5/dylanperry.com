@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import logo from './dylanGolf.jpg';
 import './App.css';
 import About from './screens/About';
-import NotFound from './screens/NotFound'
-import Upload from './screens/Upload'
-import Home from './screens/Home'
+import NotFound from './screens/NotFound';
+import Upload from './screens/Upload';
+import Sports from './screens/Sports';
+import Home from './screens/Home';
 import {
   // NOTE no more browserHistory https://reacttraining.com/react-router/web/api/BrowserRouter
   BrowserRouter as Router,
@@ -47,6 +48,7 @@ class App extends Component {
               <Route exact path="/" component={Home}/>
               <Route path="/about" component={About}/>
               <Route path="/upload" component={Upload}/>
+              <Route path="/sports" component={Sports}/>
               <Route component={NotFound}/>
             </Switch>
           </div>
