@@ -8,6 +8,7 @@ const multerS3 = require('multer-s3');
 const bodyParser = require('body-parser')
 const request = require('request');
 const fs = require('fs');
+const mlbRoute = require('./mlbScores');
 
 aws.config.loadFromPath(process.cwd() + '/server/config/aws.s3.config.json');  
 
@@ -36,6 +37,9 @@ var upload = multer({
     })
 });
 
+
+
+app.get('/mlbScores',mlbRoute.philliesGames);
 
 app.post('/files', upload.array('file',1), (req, res) => {
   console.log("UPLOADED WOOHOO");
