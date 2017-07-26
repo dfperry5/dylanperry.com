@@ -11,7 +11,7 @@ const fs = require('fs');
 const mlbRoute = require('./mlbScores');
 
 aws.config.loadFromPath(process.cwd() + '/server/config/aws.s3.config.json');  
-const dynamodb = new aws.DynamoDB({apiVersion: '2012-08-10'});
+const dynamodb = new aws.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 
 const app = express();
 let s3 = new aws.S3();
