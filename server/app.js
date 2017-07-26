@@ -11,6 +11,7 @@ const fs = require('fs');
 const mlbRoute = require('./mlbScores');
 
 aws.config.loadFromPath(process.cwd() + '/server/config/aws.s3.config.json');  
+const dynamodb = new aws.DynamoDB({apiVersion: '2012-08-10'});
 
 const app = express();
 let s3 = new aws.S3();
@@ -36,10 +37,6 @@ var upload = multer({
         }
     })
 });
-
-
-
-app.get('/mlbScores',mlbRoute.philliesGames);
 
 app.post('/files', upload.array('file',1), (req, res) => {
   console.log("UPLOADED WOOHOO");
@@ -70,6 +67,39 @@ app.post('/retrieveAllImages', (req, res) => {
             }
     });
 })
+
+app.post('/dbQuery', (req, res) => {
+    console.log(JSON.stringify(req.body));
+    // const params = {
+    //     ExclusiveStartTableName: req.body.ExclusiveStartTableName,
+    //     Limit: req.body.limit
+    // };
+    // dynamodb.listTables(params, function(err, data) {
+    //     if (err){
+    //         console.log(err, err.stack);
+    //     }  // an error occurred
+    //     else{
+    //         let tableNames = data.TableNames;
+    //         res.send(tableNames);  
+    //     }         // successful response
+    // });
+    var params = {
+        TableName : "test_fantasy_players",
+        Limit : 50
+    }
+    dynamodb.scan(params, function(err, data) {
+        if (err) {
+            console.error("Unable to query. Error:", JSON.stringify(err, null, 2));
+        } else {
+            console.log("Query succeeded.");
+            data.Items.forEach(function(item) {
+                console.log(JSON.stringify(item));
+            });
+            res.send(data.Items);
+        }
+    });
+
+});
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
