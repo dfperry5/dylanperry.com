@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import logo from './dylanGolf.jpg';
 import './App.css';
-import About from './screens/About';
-import NotFound from './screens/NotFound';
-import Upload from './screens/Upload';
-import Sports from './screens/Sports';
-import Home from './screens/Home';
-import FantasyContainer from './screens/FantasyContainer';
+import About from './routes/About';
+import NotFound from './routes/NotFound';
+import Upload from './routes/Upload';
+import Sports from './routes/Sports';
+import Home from './routes/Home';
+import FantasyContainer from './routes/FantasyContainer';
+
 import {
   // NOTE no more browserHistory https://reacttraining.com/react-router/web/api/BrowserRouter
   BrowserRouter as Router,

@@ -4,7 +4,8 @@ import classnames from 'classnames';
 import * as playerActions from '../../../actions/player-actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import PlayersList from '../PlayersList/';
+import PlayersList from '../../shared/PlayersList/';
+import PlayerInput from '../../shared/PlayerInput/';
 
 import './style.css';
 
@@ -15,28 +16,26 @@ class FantasyContainer extends Component {
     this.state = {
       players: []  
     };
-     this.onAddPlayerClick = this.onAddPlayerClick.bind(this);
+     //this.onAddPlayerClick = this.onAddPlayerClick.bind(this);
   };
 
 
-  onAddPlayerClick(){
-    const firstNameElement = document.getElementById('firstname');
-    const lastNameElement = document.getElementById('lastname');
+  // onAddPlayerClick(){
+  //   const firstNameElement = document.getElementById('firstname');
+  //   const lastNameElement = document.getElementById('lastname');
     
-    const player = {
-        firstname: firstNameElement.value,
-        lastname: lastNameElement.value
-    }
-    this.props.actions.addPerson(player);
-  }
+  //   const player = {
+  //       firstname: firstNameElement.value,
+  //       lastname: lastNameElement.value
+  //   }
+  //   this.props.actions.addPerson(player);
+  // }
 
   render() {
     const {players} = this.props;
     return (
         <div>
-            <input id="firstname" type="text" placeholder="First Name" />
-            <input id="lastname" type="text" placeholder="Last Name" />
-            <button onClick={this.onAddPlayerClick}>Add Person</button>
+            <PlayerInput addPlayer={this.props.actions.addPerson} />
             <PlayersList players={players} />
         </div>
     );
