@@ -16,26 +16,13 @@ class FantasyContainer extends Component {
     this.state = {
       players: []  
     };
-     //this.onAddPlayerClick = this.onAddPlayerClick.bind(this);
   };
-
-
-  // onAddPlayerClick(){
-  //   const firstNameElement = document.getElementById('firstname');
-  //   const lastNameElement = document.getElementById('lastname');
-    
-  //   const player = {
-  //       firstname: firstNameElement.value,
-  //       lastname: lastNameElement.value
-  //   }
-  //   this.props.actions.addPerson(player);
-  // }
 
   render() {
     const {players} = this.props;
     return (
         <div>
-            <PlayerInput addPlayer={this.props.actions.addPerson} />
+            <PlayerInput addPlayer={this.props.actions.addPlayer} />
             <PlayersList players={players} />
         </div>
     );
