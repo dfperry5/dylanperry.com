@@ -7,6 +7,10 @@ import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import tether from 'tether';
+import {Provider} from 'react-redux';
+import configureStore from './store/configure-store';
+
+const store = configureStore();
 
 window.Tether = tether;
 window.jQuery = $;
@@ -14,6 +18,8 @@ window.jQuery = $;
 require('bootstrap');
 
 ReactDOM.render(
- <App />,
+    <Provider store={store}>
+        <App />
+    </Provider>,
 document.getElementById('root'));
 registerServiceWorker();
