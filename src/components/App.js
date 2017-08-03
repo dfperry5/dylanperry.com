@@ -7,6 +7,7 @@ import Upload from './routes/Upload';
 import Sports from './routes/Sports';
 import Home from './routes/Home';
 import FantasyContainer from './routes/FantasyContainer';
+import FantasyTeamContainer from './routes/FantasyTeamContainer';
 
 import {
   // NOTE no more browserHistory https://reacttraining.com/react-router/web/api/BrowserRouter
@@ -51,7 +52,8 @@ class App extends Component {
               <Route path="/about" component={About}/>
               <Route path="/upload" component={Upload}/>
               <Route path="/sports" component={Sports}/>
-              <Route path="/fantasy" component={FantasyContainer}/>
+              <Route path="/fantasyTeam" component={FantasyTeamContainer}/>
+              <Route path="/fantasyPlayer" component={FantasyContainer}/>
               <Route component={NotFound}/>
             </Switch>
           </div>

@@ -68,24 +68,10 @@ app.post('/retrieveAllImages', (req, res) => {
     });
 })
 
-app.post('/dbQuery', (req, res) => {
-    console.log(JSON.stringify(req.body));
-    // const params = {
-    //     ExclusiveStartTableName: req.body.ExclusiveStartTableName,
-    //     Limit: req.body.limit
-    // };
-    // dynamodb.listTables(params, function(err, data) {
-    //     if (err){
-    //         console.log(err, err.stack);
-    //     }  // an error occurred
-    //     else{
-    //         let tableNames = data.TableNames;
-    //         res.send(tableNames);  
-    //     }         // successful response
-    // });
+app.post('/getAllFromTable', (req, res) => {
     var params = {
-        TableName : "test_fantasy_players",
-        Limit : 50
+        TableName : req.body.tableName,
+        Limit : req.body.limit
     }
     dynamodb.scan(params, function(err, data) {
         if (err) {
