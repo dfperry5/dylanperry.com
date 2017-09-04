@@ -28,7 +28,7 @@ export default class About extends Component {
       ncState: {
         quote:{
           text: '"For the strength of the pack is the wolf, and the strength of the wolf is the pack.”',
-          author: 'Olaf the Snowman',
+          author: 'Rudyard Kipling',
           source: 'Law of the Jungle',
         },
         image: 'NCState.jpg',
@@ -41,7 +41,7 @@ export default class About extends Component {
       ariel: {
         quote:{
           text: '"Some people are worth melting for.”',
-          author: 'Rudyard Kipling',
+          author: 'Olaf the Snowman',
           source: 'Frozen',
         },
         image: 'DylanRelWedding.jpg',
