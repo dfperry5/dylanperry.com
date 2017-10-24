@@ -50,8 +50,6 @@ class App extends Component {
               <Route path="/about" component={About}/>
               <Route path="/upload" component={Upload}/>
               <Route path="/sports" component={Sports}/>
-              <Route path="/fantasyTeam" component={FantasyTeamContainer}/>
-              <Route path="/fantasyPlayer" component={FantasyContainer}/>
               <Route component={NotFound}/>
             </Switch>
           </div>
