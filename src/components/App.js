@@ -6,8 +6,6 @@ import NotFound from './routes/NotFound';
 import Upload from './routes/Upload';
 import Sports from './routes/Sports';
 import Home from './routes/Home';
-import FantasyContainer from './routes/FantasyContainer';
-import FantasyTeamContainer from './routes/FantasyTeamContainer';
 
 import {
   // NOTE no more browserHistory https://reacttraining.com/react-router/web/api/BrowserRouter

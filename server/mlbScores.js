@@ -1,4 +1,5 @@
 const request = require('request');
+const Promise = require('bluebird');
 
 module.exports = {
     philliesGames: (req, res) => {
